@@ -6,6 +6,9 @@ import ShowPublish from "./views/Publications/ShowPublish";
 import StorePublish from "./views/Publications/StorePublish";
 import UpdatePublish from "./views/Publications/UpdatePublish";
 
+import IndexComments from "./components/Comments/IndexComments";
+import StoreComment from "./components/Comments/StoreComments";
+
 import PagInicio from './components/Inicio/PagInicio';
 
 import { IndexUsers } from "./views/Users/IndexUsers";
@@ -33,6 +36,9 @@ function App() {
           <Route path="/ver_publicacion" element={<ShowPublish />} />
           <Route path="/crear_publicacion" element={<StorePublish />} />
           <Route path="/editar_publicacion/:id" element={<UpdatePublish />} />
+
+          <Route path="/comentarios" element={<IndexComments/>}/>
+          <Route path="/crear_comentarios" element={<StoreComment/>}/>
 
           <Route element={<ProtectedRoutes/>}>
           <Route path="/usuarios" element={<IndexUsers />} />
