@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 // import { useQuery } from "@tanstack/react-query";
 import { postUser } from "../components/Api/Users";
 import {useRef} from 'react';
-import NavbarComponent from "../components/Inicio/Navbar";
 
 function StoreUser() {
 
@@ -35,7 +34,6 @@ function StoreUser() {
 
   return (
     <div>
-      <NavbarComponent/>
       <form ref={formRef} onSubmit={handleSubmit}>
 
         <label htmlFor="name">Nombre(s): </label>

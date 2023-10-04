@@ -1,18 +1,57 @@
 import { Card } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import Carousel from 'react-bootstrap/Carousel'
+import Image from 'react-bootstrap/Image';
 import { Link } from "react-router-dom";
-import usuario from './img/usuario.jpg';
 import browni from './img/browni.jpg';
-import NavbarComponent from './Navbar'
+import ibrain from './img/ibrain.jpg';
+import gerardo from './img/gerardo.jpg';
+import flor from './img/flor.jpg';
+import alva from './img/alva.jpg';
+import colors from './img/colors.jpg';
+import { useState } from 'react';
+import "../../../public/css/Inicio.css";
 
-function Inicio() {
+
+function PagInicio() {
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectIndex) => {
+        setIndex(selectIndex);
+    }
     return (
         <div className="container-todo">
-            <NavbarComponent/>
-            <div className="cards d-flex justify-content-around">
+            <div className="carousel justify-content around">
+                <Carousel activeIndex={index} onSelect={handleSelect}>
+                    <Carousel.Item>
+                        <img src={browni} text="First slide" />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={browni} text="First slide" />
+                        <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={browni} text="First slide" />
+                        <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>
+                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                            </p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </div>
 
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={usuario} alt='Imagen'></Card.Img>
+            <div className="cards">
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img src={ibrain} alt='Imagen'></Card.Img>
                     <Card.Body>
                         <Card.Title>Adan Ibrain Mejia De Jesus</Card.Title>
                         <br />
@@ -26,10 +65,10 @@ function Inicio() {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={usuario} alt='Imagen'></Card.Img>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img src={gerardo} alt='Imagen'></Card.Img>
                     <Card.Body>
-                        <Card.Title>Gerardo Reayes Alva</Card.Title>
+                        <Card.Title>Gerardo Reyes Alva</Card.Title>
                         <br />
                         <Card.Subtitle>Porducción</Card.Subtitle>
                         <br />
@@ -39,8 +78,8 @@ function Inicio() {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={usuario} alt='Imagen'></Card.Img>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img src={flor} alt='Imagen'></Card.Img>
                     <Card.Body>
                         <Card.Title>Sharon Mariel Gomez Hernández</Card.Title>
                         <br />
@@ -54,8 +93,8 @@ function Inicio() {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={usuario} alt='Imagen'></Card.Img>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img src={alva} alt='Imagen'></Card.Img>
                     <Card.Body>
                         <Card.Title>Jose Antonio Alva Montes</Card.Title>
                         <br />
@@ -70,41 +109,36 @@ function Inicio() {
                     </Card.Body>
                 </Card>
             </div>
-            <div>
-                <h3>Organigrama</h3>
-                <div>
+            <br />
 
+            <div className="transparent-box">
+                <div className="box-content">
+                    <h3 className="box-title">TODO EL PODER EN UNA MORDIDA</h3>
+                    <div className="fondo">
+                        <Image src={colors} alt="Imagen" fluid />
+                    </div>
                 </div>
             </div>
-
-            <div className="carousel justify-content around">
-                <Carousel>
-                    <Carousel.Item>
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                        <img src="./img/browni.jpg" alt="Imagen" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img src="./img/browni.jpg" alt="Imagen" />
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img src="./img/browni.jpg" alt="Imagen" />
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+            <div className="container-form">
+                <div className="text-section">
+                    <h3>Texto a la Izquierda</h3>
+                    <p>Aquí puedes agregar tu texto descriptivo o cualquier otro contenido que desees mostrar en la parte izquierda.</p>
+                </div>
+                <div className="form-section">
+                    <div className="form">
+                        <Form>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control type="email" placeholder="name@example.com" />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                <Form.Label>Message</Form.Label>
+                                <Form.Control as="textarea" rows={3} placeholder="Write your message here..." />
+                            </Form.Group>
+                        </Form>
+                    </div>
+                </div>
             </div>
-
 
             <br />
             <div>
@@ -114,4 +148,4 @@ function Inicio() {
     );
 }
 
-export default Inicio;
+export default PagInicio;

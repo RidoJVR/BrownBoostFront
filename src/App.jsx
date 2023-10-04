@@ -9,11 +9,11 @@ import UpdatePublish from "./views/Publications/UpdatePublish";
 import { IndexUsers } from "./views/Users/IndexUsers";
 
 import Register from "./views/Register";
-import Login from "./views/Login";
 
 import ProtectedRoutes from './components/Auth/ProtectedRoutes'
 import Nav from "./components/Nav";
 import Inicio from "./components/Inicio/Inicio";
+import Contacto from "./views/Contacto/Contacto";
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
 
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/registro" element={<Register />} />
+          <Route path="/contacto" element={<Contacto />} />
 
-          <Route path="/login" element={<Login />} />
 
           <Route path="/" element={<IndexPublish />} />
 
