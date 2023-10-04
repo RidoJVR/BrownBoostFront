@@ -1,7 +1,33 @@
 // import '../../../public/css/Publish.css'
-
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { postcomment } from "../../components/Api/Publications";
 
 function ShowPublish() {
+
+  const queryClient = useQueryClient();
+
+  const addUser = useMutation({
+    mutationFn: postcomment,
+    onSuccess: () => {
+      console.log("Su publicacion se creo exitosamente");
+      queryClient.invalidateQueries("comment");
+    },
+  });
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const dataform = new FormData(e.target);
+    const comment = Object.fromEntries(dataform);
+
+    addUser.mutate({
+      ...comment
+    });
+  };
+
+
   return (
     <div>
       <div className="blog-card spring-fever">
@@ -40,6 +66,24 @@ function ShowPublish() {
         <div className="gradient-overlay"></div>
         <div className="color-overlay"></div>
       </div>
+
+      <div>
+      <form onSubmit={handleSubmit}>
+
+<label htmlFor="comment">Comentario: </label>
+<input type="text" id="comment" name="comment" /><br/>
+
+<label htmlFor="qualification">Calificacion: </label>
+<input type="text" id="qualification" name="qualification" /><br/>
+
+<label htmlFor="publication">Id_publicacion: </label>
+<input type="text" id="publication" name="publication" /><br/>
+
+<button className="btn btn-primary">Guardar</button>
+
+</form>
+      </div>
+
     </div>
   );
 }

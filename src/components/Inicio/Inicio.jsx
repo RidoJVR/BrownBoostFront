@@ -3,12 +3,12 @@ import Carousel from 'react-bootstrap/Carousel'
 import { Link } from "react-router-dom";
 import usuario from './img/usuario.jpg';
 import browni from './img/browni.jpg';
+import NavbarComponent from './Navbar'
 
-
-function PagInicio() {
+function Inicio() {
     return (
         <div className="container-todo">
-            
+            <NavbarComponent/>
             <div className="cards d-flex justify-content-around">
 
                 <Card style={{ width: '18rem' }}>
@@ -114,4 +114,4 @@ function PagInicio() {
     );
 }
 
-export default PagInicio;
+export default Inicio;

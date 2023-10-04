@@ -6,45 +6,38 @@ import ShowPublish from "./views/Publications/ShowPublish";
 import StorePublish from "./views/Publications/StorePublish";
 import UpdatePublish from "./views/Publications/UpdatePublish";
 
-import IndexComments from "./components/Comments/IndexComments";
-import StoreComment from "./components/Comments/StoreComments";
-
-import PagInicio from './components/Inicio/PagInicio';
-
 import { IndexUsers } from "./views/Users/IndexUsers";
 
 import Register from "./views/Register";
 import Login from "./views/Login";
 
 import ProtectedRoutes from './components/Auth/ProtectedRoutes'
-import Nav from "./components/Nav";
+import NavbarComponent from "./components/Inicio/Navbar";
+import Inicio from "./components/Inicio/Inicio";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Nav />
+        <NavbarComponent/>
         <Routes>
 
+          <Route path="/inicio" element={<Inicio />} />
           <Route path="/registro" element={<Register />} />
 
           <Route path="/login" element={<Login />} />
 
           <Route path="/" element={<IndexPublish />} />
 
+
           
           <Route path="/ver_publicacion" element={<ShowPublish />} />
           <Route path="/crear_publicacion" element={<StorePublish />} />
           <Route path="/editar_publicacion/:id" element={<UpdatePublish />} />
 
-          <Route path="/comentarios" element={<IndexComments/>}/>
-          <Route path="/crear_comentarios" element={<StoreComment/>}/>
-
           <Route element={<ProtectedRoutes/>}>
           <Route path="/usuarios" element={<IndexUsers />} />
           </Route>
-
-          <Route path='/inicio' element={<PagInicio/>} />
 
         </Routes>
       </BrowserRouter>

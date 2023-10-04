@@ -13,7 +13,7 @@ const queryClient = new QueryClient
 
 window.axios = axios
 
-window.axios.defaults.baseUrl = 'http://127.0.0.1:8000/api'
+window.axios.defaults.baseUrl = 'http://127.0.0.1:8000'
 window.axios.defaults.headers.common['Acecpt'] = 'application/json'
 window.axios.defaults.headers.common['Content-Type'] = 'application/json'
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttRequest'
