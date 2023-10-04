@@ -12,14 +12,14 @@ import Register from "./views/Register";
 import Login from "./views/Login";
 
 import ProtectedRoutes from './components/Auth/ProtectedRoutes'
-import NavbarComponent from "./components/Inicio/Navbar";
+import Nav from "./components/Nav";
 import Inicio from "./components/Inicio/Inicio";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <NavbarComponent/>
+        <Nav/>
         <Routes>
 
           <Route path="/inicio" element={<Inicio />} />
