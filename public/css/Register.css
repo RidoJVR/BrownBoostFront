@@ -1,0 +1,34 @@
+/* Register.css */
+
+/* Estilos para el contenedor principal (centrar) */
+.center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura del 100% de la ventana */
+  }
+  
+  /* Estilos para el cuadro del formulario */
+  .form-box {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Ancho del cuadro del formulario */
+  }
+  
+  /* Estilos para el botón "Guardar" */
+  button.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

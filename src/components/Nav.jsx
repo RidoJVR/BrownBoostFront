@@ -25,7 +25,7 @@ export const AppNav = () => {
           </Nav>
           <NavDropdown title="Usuario" id="basic-nav-dropdown">
               <NavDropdown.Item href="/crear_publicacion">Productos</NavDropdown.Item>
-              <NavDropdown.Item href="/ver_publicacion">Publicaciones</NavDropdown.Item>
+              <NavDropdown.Item href="/ver_publicacion">Comentarios</NavDropdown.Item>
               <NavDropdown.Item href="/registro">Registrarse</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/contacto">

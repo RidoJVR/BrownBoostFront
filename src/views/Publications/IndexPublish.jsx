@@ -2,11 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deletePublish, getAllPublishes } from "../../components/Api/Publications";
 import { useQuery } from "@tanstack/react-query";
 import "../../../public/css/Publish.css";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function IndexPublish() {
-
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
   const {
     isLoading,
@@ -21,19 +20,16 @@ function IndexPublish() {
 
   const destroyPublish = useMutation({
     mutationFn: deletePublish,
-    onSuccess: ()=>{
-      queryClient.invalidateQueries('publishes')
-    }
+    onSuccess: () => {
+      queryClient.invalidateQueries('publishes');
+    },
   });
 
   if (isLoading) return <div>Loading....</div>;
-  else if (isError) return <div>Erro: {error.message}</div>;
+  else if (isError) return <div>Error: {error.message}</div>;
 
   return (
-    <div>
-      <div> 
-        <Link to="/crear_publicacion" className="btn btn-success">Crear</Link>
-      </div>
+    <div className="container-pub">
       <div className="table-title">
         <h3>Data Table</h3>
       </div>
@@ -59,21 +55,26 @@ function IndexPublish() {
                     destroyPublish.mutate(publish.id);
                   }}
                 >
-                  Elimnar
+                  Eliminar
                 </button>
                 <button
                   className="btn btn-warning"
                   onClick={() => {
-                    destroyPublish.mutate(publish.id);
+                    // Coloca aquí la lógica para editar
                   }}
                 >
-                Editar
+                  Editar
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className="boton">
+        <Link to="/crear_publicacion" className="btn btn-success create-button">
+          Crear
+        </Link>
+      </div>
     </div>
   );
 }

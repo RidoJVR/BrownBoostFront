@@ -553,3 +553,20 @@ h3:after {
 .meta{
   box-shadow:none !important
 }
+
+/* Publish.css */
+.boton {
+  margin-top: 20px; /* Espacio superior para separarlo de la tabla */
+  padding: 10px 20px; /* Espaciado interior del botón */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.create-button:hover {
+  background-color: #218838; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar el ratón sobre el botón */
+}
+
+.boton-comentario{
+  margin-top: 700px;
+  text-align: center;
+}
