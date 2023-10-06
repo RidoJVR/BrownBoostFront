@@ -1,15 +1,34 @@
 import React, { useState } from "react";
+import { postContacto } from "../../components/Api/Contacto";
 
-function ContactForm() {
-  // Estados para los campos del formulario
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+function Contacto() {
+  const [formData, setFormData] = useState({
+    Nombre: "",
+    Telefono: "",
+    Correo: "",
+    Mensaje: "",
+  });
 
-  // Manejar el envío del formulario (no hace nada)
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí podrías agregar código para enviar los datos a un servidor o realizar otras acciones si es necesario
+
+    try {
+      const response = await postContacto(formData); // Utiliza la función postContacto para enviar los datos
+      console.log(response);
+      if (response.status === 200) {
+        console.log("Mensaje enviado con éxito");
+        // Puedes mostrar un mensaje de confirmación aquí
+      } else {
+        console.error("Error al enviar el mensaje");
+      }
+    } catch (error) {
+      console.error("Error al enviar el mensaje", error);
+    }
   };
 
   return (
@@ -17,37 +36,52 @@ function ContactForm() {
       <h2>Formulario de Contacto</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="Nombre">Nombre:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="Nombre"
+            name="Nombre"
+            value={formData.Nombre}
+            onChange={handleChange}
+            required
           />
         </div>
         <div>
-          <label htmlFor="email">Correo Electrónico:</label>
+          <label htmlFor="Telefono">Teléfono:</label>
+          <input
+            type="text"
+            id="Telefono"
+            name="Telefono"
+            value={formData.Telefono}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="Correo">Correo Electrónico:</label>
           <input
             type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id="Correo"
+            name="Correo"
+            value={formData.Correo}
+            onChange={handleChange}
+            required
           />
         </div>
         <div>
-          <label htmlFor="message">Mensaje:</label>
+          <label htmlFor="Mensaje">Mensaje:</label>
           <textarea
-            id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            id="Mensaje"
+            name="Mensaje"
+            value={formData.Mensaje}
+            onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <button type="submit">Guardar</button>
-        </div>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );
 }
 
-export default ContactForm;
+export default Contacto;
