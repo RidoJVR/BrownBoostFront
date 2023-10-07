@@ -5,4 +5,4 @@ const baseURLApi = axios.create({
 });
 
 export const postContacto = (contacto) =>
-  baseURLApi.post("/contacto/contacto", contacto);
+  baseURLApi.post("/contacto/", contacto);
